@@ -1,1 +1,1 @@
-import './src/light-dark-switch'
+import './src/index.ts'

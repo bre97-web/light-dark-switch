@@ -1,14 +1,14 @@
-import "../../node_modules/@lit/reactive-element/reactive-element.mjs";
-import { html as f } from "../../node_modules/lit-html/lit-html.mjs";
-import { LitElement as p } from "../../node_modules/lit-element/lit-element.mjs";
-import { customElement as h } from "../../node_modules/@lit/reactive-element/decorators/custom-element.mjs";
-import { property as n } from "../../node_modules/@lit/reactive-element/decorators/property.mjs";
-import { query as m } from "../../node_modules/@lit/reactive-element/decorators/query.mjs";
-import "../../node_modules/@lit/reactive-element/decorators/query-assigned-elements.mjs";
-import "../../node_modules/@material/web/focus/focus-ring.mjs";
-import "../../node_modules/@material/web/switch/switch.mjs";
-import "../../node_modules/@material/web/ripple/ripple.mjs";
-import { css as v } from "../../node_modules/@lit/reactive-element/css-tag.mjs";
+import "../../node_modules/@lit/reactive-element/reactive-element.js";
+import { html as f } from "../../node_modules/lit-html/lit-html.js";
+import { LitElement as p } from "../../node_modules/lit-element/lit-element.js";
+import { customElement as h } from "../../node_modules/@lit/reactive-element/decorators/custom-element.js";
+import { property as n } from "../../node_modules/@lit/reactive-element/decorators/property.js";
+import { query as m } from "../../node_modules/@lit/reactive-element/decorators/query.js";
+import "../../node_modules/@lit/reactive-element/decorators/query-assigned-elements.js";
+import "../../node_modules/@material/web/focus/focus-ring.js";
+import "../../node_modules/@material/web/switch/switch.js";
+import "../../node_modules/@material/web/ripple/ripple.js";
+import { css as v } from "../../node_modules/@lit/reactive-element/css-tag.js";
 var g = Object.defineProperty, u = Object.getOwnPropertyDescriptor, i = (t, l, o, c) => {
   for (var e = c > 1 ? void 0 : c ? u(l, o) : l, r = t.length - 1, d; r >= 0; r--)
     (d = t[r]) && (e = (c ? d(l, o, e) : d(e)) || e);

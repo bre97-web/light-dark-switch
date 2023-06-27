@@ -21,10 +21,10 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   },
-  "main": "./dist/bundle.js",
-  "module": "./dist/bundle.js",
-  "types": "./dist/index.d.ts",
+  "module": "./switch/light-dark-switch.js",
+  "types": "./types/light-dark-switch.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ]
 }
