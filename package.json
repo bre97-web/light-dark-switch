@@ -1,7 +1,16 @@
 {
   "name": "light-dark-switch",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": "bre97-npm",
+  "description": "A lit web component.",
+  "keywords": ["switch", "dark"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bre97-web/light-dark-switch"
+  },
+  "license": "MIT",
+  "homepage": "https://bre97-web.github.io/light-dark-switch/",
+  "bugs": "https://github.com/bre97-web/light-dark-switch/issues",
   "type": "module",
   "scripts": {
     "dev": "vite",
