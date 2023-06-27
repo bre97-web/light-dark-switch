@@ -3,6 +3,22 @@
 @tailwind utilities;
 @tailwind variants;
 
+@layer base {
+    h1 {
+        @apply font-bold;
+    }
+    h1 + p {
+        @apply font-normal text-base;
+    }
+    main {
+        @apply max-w-xl mx-auto;
+    }
+    main h1 {
+        @apply text-4xl my-4;
+    }
+}
 @layer components {
-    
+    .row {
+        @apply flex flex-row gap-4;
+    }
 }
