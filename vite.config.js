@@ -10,7 +10,7 @@ export default defineConfig({
     rollupOptions: {
       //忽略打包vue文件
       external: ["css","html","svg"],
-      input: ["./main.ts"],
+      input: ["./index.ts"],
       output: [
         {
           //打包格式
@@ -21,7 +21,7 @@ export default defineConfig({
           preserveModules: true,
           exports: "named",
           //配置打包根目录
-          dir: "./switch/es",
+          dir: "./switch",
         },
       ],
     },
