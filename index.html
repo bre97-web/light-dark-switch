@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.ts"></script>
-  </head>
-  <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Lit + TS</title>
+  <script type="module" src="/src/light-dark-switch.ts"></script>
+  <script type="module">
+    import './src/assets/index.css'
+  </script>
+</head>
+
+<body>
+  <header class="flex flex-row justify-between border-b fixed top-0 w-screen px-4 py-2">
+    <light-dark-switch md sync></light-dark-switch>
+    <light-dark-switch sync selected></light-dark-switch>
+
+  </header>
+
+</body>
+
 </html>

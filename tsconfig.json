@@ -13,6 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "strictPropertyInitialization": false,
+    // "noImplicitAny": false,
 
     /* Linting */
     "strict": true,
