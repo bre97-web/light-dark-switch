@@ -1,0 +1,22 @@
+{
+  "name": "light-dark-switch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@material/web": "^1.0.0-pre.11",
+    "autoprefixer": "^10.4.14",
+    "lit": "^2.7.5",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9"
+  }
+}
