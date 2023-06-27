@@ -21,8 +21,8 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   },
-  "module": "./switch/light-dark-switch.js",
-  "types": "./types/light-dark-switch.d.ts",
+  "module": "./switch/index.js",
+  "types": "./types/index.d.ts",
   "files": [
     "dist",
     "types"
