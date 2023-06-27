@@ -2,6 +2,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: '/light-dark-switch',
   // build: {
   //   //打包文件目录
   //   outDir: "es",
