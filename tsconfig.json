@@ -6,13 +6,17 @@
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-
+    "declaration": true,
+    // 类型定义文件生成的目标目录
+    "outDir": "types",
+    // 只emit类型定义文件，而不emit其他诸如source-map等
+    "emitDeclarationOnly": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "strictPropertyInitialization": false,
     // "noImplicitAny": false,
 
