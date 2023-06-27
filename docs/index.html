@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Dark Switch</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" crossorigin src="/light-dark-switch/assets/index-37c62ae4.js"></script>
+</head>
+
+<body>
+  <div class="space-y-2">
+    <header class="flex flex-row justify-between border w-screen px-4 py-2">
+      <div>
+        <h1 class="font-bold">light-dark-switch</h1>
+        <p>Material Design 3 Styles</p>
+      </div>
+
+      <aside>
+        <light-dark-switch md></light-dark-switch>
+      </aside>
+    </header>
+    <header class="flex flex-row justify-between border w-screen px-4 py-2">
+      <div>
+        <h1 class="font-bold">light-dark-switch</h1>
+        <p>From <a class="text-blue-500" href="https://codepen.io/HampusE/pen/LYZQRpq">CodePen Styles</a></p>
+      </div>
+      <aside>
+        <light-dark-switch></light-dark-switch>
+      </aside>
+    </header>
+    <main class="max-w-xl mx-auto">
+        <h1 class="text-4xl my-4 font-bold">Sync</h1>
+        <div class="flex flex-row gap-4">
+          <light-dark-switch md sync></light-dark-switch>
+          <light-dark-switch md sync></light-dark-switch>
+          <light-dark-switch sync></light-dark-switch>
+          <light-dark-switch sync></light-dark-switch>
+        </div>
+
+        <h1 class="text-4xl my-4 font-bold">No Sync</h1>
+        <div class="flex flex-row gap-4">
+          <light-dark-switch md></light-dark-switch>
+          <light-dark-switch md></light-dark-switch>
+          <light-dark-switch></light-dark-switch>
+          <light-dark-switch></light-dark-switch>
+        </div>
+
+        <h1 class="text-4xl my-4 font-bold">With Selected Property</h1>
+        <div class="flex flex-row gap-4">
+          <light-dark-switch md selected></light-dark-switch>
+          <light-dark-switch selected></light-dark-switch>
+        </div>
+
+        <h1 class="text-4xl my-4 font-bold">Sync With Selected Property</h1>
+        <div class="flex flex-row gap-4">
+          <light-dark-switch md sync selected></light-dark-switch>
+          <light-dark-switch sync selected></light-dark-switch>
+        </div>
+    </main>
+  </div>
+</body>
+
+</html>
