@@ -1,16 +1,100 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});require("../../node_modules/@lit/reactive-element/reactive-element.js");const n=require("../../node_modules/lit-html/lit-html.js"),h=require("../../node_modules/lit-element/lit-element.js"),d=require("../../node_modules/@lit/reactive-element/decorators/custom-element.js"),o=require("../../node_modules/@lit/reactive-element/decorators/property.js"),f=require("../../node_modules/@lit/reactive-element/decorators/query.js");require("../../node_modules/@lit/reactive-element/decorators/query-assigned-elements.js");require("../../node_modules/@material/web/focus/focus-ring.js");require("../../node_modules/@material/web/switch/switch.js");require("../../node_modules/@material/web/ripple/ripple.js");const p=require("../../node_modules/@lit/reactive-element/css-tag.js");var v=Object.defineProperty,m=Object.getOwnPropertyDescriptor,i=(s,t,c,l)=>{for(var e=l>1?void 0:l?m(t,c):t,a=s.length-1,r;a>=0;a--)(r=s[a])&&(e=(l?r(t,c,e):r(e))||e);return l&&e&&v(t,c,e),e};exports.MDSwitch=class extends h.LitElement{constructor(){super(...arguments),this.selected=!1,this.disabled=!1,this.sync=!1}connectedCallback(){super.connectedCallback(),this._ayncToLocal()&&this.selected==null&&(this.selected=!0),this.sync&&(this._timer=setInterval(()=>{this._ayncToLocal()?this.selected=!0:this.selected=!1},500))}disconnectedCallback(){super.disconnectedCallback(),clearInterval(this._timer)}updated(t){this._toggle()}_ayncToLocal(){return document.documentElement.classList.contains("dark")}_toggle(){this.selected?this._activationDarkClass():this._removeDarkClass()}_removeDarkClass(){document.documentElement.classList.remove("dark")}_activationDarkClass(){document.documentElement.classList.add("dark")}render(){return n.html`
+import "../../node_modules/@lit/reactive-element/reactive-element.js";
+import { html as f } from "../../node_modules/lit-html/lit-html.js";
+import { LitElement as p } from "../../node_modules/lit-element/lit-element.js";
+import { customElement as h } from "../../node_modules/@lit/reactive-element/decorators/custom-element.js";
+import { property as n } from "../../node_modules/@lit/reactive-element/decorators/property.js";
+import { query as m } from "../../node_modules/@lit/reactive-element/decorators/query.js";
+import "../../node_modules/@lit/reactive-element/decorators/query-assigned-elements.js";
+import "../../node_modules/@material/web/focus/focus-ring.js";
+import "../../node_modules/@material/web/switch/switch.js";
+import "../../node_modules/@material/web/ripple/ripple.js";
+import { css as v } from "../../node_modules/@lit/reactive-element/css-tag.js";
+var g = Object.defineProperty, u = Object.getOwnPropertyDescriptor, i = (t, l, o, c) => {
+  for (var e = c > 1 ? void 0 : c ? u(l, o) : l, r = t.length - 1, d; r >= 0; r--)
+    (d = t[r]) && (e = (c ? d(l, o, e) : d(e)) || e);
+  return c && e && g(l, o, e), e;
+};
+let s = class extends p {
+  constructor() {
+    super(...arguments), this.selected = !1, this.disabled = !1, this.sync = !1;
+  }
+  connectedCallback() {
+    super.connectedCallback(), this._ayncToLocal() && this.selected == null && (this.selected = !0), this.sync && (this._timer = setInterval(() => {
+      this._ayncToLocal() ? this.selected = !0 : this.selected = !1;
+    }, 500));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback(), clearInterval(this._timer);
+  }
+  /**
+   * lit组件更新完毕后根据selected的值来设置document.documentElement的类名
+   */
+  updated(t) {
+    this._toggle();
+  }
+  /**
+   * 判断html标签的类名是否包含dark类
+   */
+  _ayncToLocal() {
+    return document.documentElement.classList.contains("dark");
+  }
+  /**
+   * 根据selected的值设置html标签的类名
+   */
+  _toggle() {
+    this.selected ? this._activationDarkClass() : this._removeDarkClass();
+  }
+  _removeDarkClass() {
+    document.documentElement.classList.remove("dark");
+  }
+  _activationDarkClass() {
+    document.documentElement.classList.add("dark");
+  }
+  render() {
+    return f`
             <div>
                 <md-switch
-                    @click="${()=>this.selected=!this.selected}"
+                    @click="${() => this.selected = !this.selected}"
                     id="light-dark-switch-ref"
                     ?selected="${this.selected}"
                     ?disabled="${this.disabled}"
                 ></md-switch>
             </div>
-        `}};i([o.property({type:Boolean})],exports.MDSwitch.prototype,"selected",2);i([o.property({type:Boolean})],exports.MDSwitch.prototype,"disabled",2);i([o.property({type:Boolean})],exports.MDSwitch.prototype,"sync",2);exports.MDSwitch=i([d.customElement("light-dark-switch-md")],exports.MDSwitch);exports.Switch=class extends exports.MDSwitch{_activation(){var t;(t=this.button)==null||t.classList.add("active")}_remove(){var t;(t=this.button)==null||t.classList.remove("active")}_toggle(){this.selected?this._activation():this._remove()}updated(t){super._toggle(),this._toggle()}render(){return n.html`
+        `;
+  }
+};
+i([
+  n({ type: Boolean })
+], s.prototype, "selected", 2);
+i([
+  n({ type: Boolean })
+], s.prototype, "disabled", 2);
+i([
+  n({ type: Boolean })
+], s.prototype, "sync", 2);
+s = i([
+  h("light-dark-switch-md")
+], s);
+let a = class extends s {
+  _activation() {
+    var t;
+    (t = this.button) == null || t.classList.add("active");
+  }
+  _remove() {
+    var t;
+    (t = this.button) == null || t.classList.remove("active");
+  }
+  _toggle() {
+    this.selected ? this._activation() : this._remove();
+  }
+  updated(t) {
+    super._toggle(), this._toggle();
+  }
+  render() {
+    return f`
         <div class="content">
             <div class="switch">
-                <button href="" @click="${()=>this.selected=!this.selected}" id="btn">
+                <button href="" @click="${() => this.selected = !this.selected}" id="btn">
                     <div class="flipBtn">
                         <div class="dark">
                             <svg height="50" width="50">
@@ -62,7 +146,10 @@
                 </button>
             </div>
         </div>
-      `}};exports.Switch.styles=p.css`
+      `;
+  }
+};
+a.styles = v`
 
 .content {
     width: 60%;
@@ -174,4 +261,14 @@ button {
         width: 90%;
     }
 }
-    `;i([f.query("#btn")],exports.Switch.prototype,"button",2);exports.Switch=i([d.customElement("light-dark-switch-standard")],exports.Switch);
+    `;
+i([
+  m("#btn")
+], a.prototype, "button", 2);
+a = i([
+  h("light-dark-switch-standard")
+], a);
+export {
+  s as MDSwitch,
+  a as Switch
+};
