@@ -16,23 +16,25 @@
   "bugs": "https://github.com/bre97-web/light-dark-switch/issues",
   "type": "module",
   "scripts": {
+    "css": "npx tailwindcss -i ./index.css -o ./output.css --watch",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@material/web": "^1.0.0-pre.12",
-    "lit": "^2.7.6"
+    "lit": "^2.7.6",
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "typescript": "^5.0.2",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.1.1"
   },
-  "module": "./lib/index.js",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib",
-    "types"
+    "lib"
   ]
 }

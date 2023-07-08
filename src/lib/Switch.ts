@@ -1,8 +1,6 @@
-import { LitElement, PropertyValueMap, TemplateResult, css, html } from "lit";
-import { customElement, property, query } from "lit/decorators.js";
-import '@material/web/focus/focus-ring'
+import { LitElement, PropertyValueMap, TemplateResult, html } from "lit"
+import { property } from "lit/decorators.js"
 import '@material/web/switch/switch'
-import '@material/web/ripple/ripple'
 
 class Switch extends LitElement {
 
@@ -81,6 +79,14 @@ class Switch extends LitElement {
     }
 
     /**
+     * 反相selected
+     */
+    public toggle() {
+        this.selected = !this.selected
+        this.toggleDarkClass()
+    }
+
+    /**
      * 如果启用了sync，selected仅决定组件首次渲染后的选择状态
      * @see 可选项
      */
@@ -101,13 +107,11 @@ class Switch extends LitElement {
 
     protected override render(): TemplateResult<1> {
         return html`
-            <div>
-                <md-switch
-                    @click="${() => this.selected = !this.selected}"
-                    ?selected="${this.selected}"
-                    ?disabled="${this.disabled}"
-                ></md-switch>
-            </div>
+            <md-switch
+                @click="${() => this.selected = !this.selected}"
+                ?selected="${this.selected}"
+                ?disabled="${this.disabled}"
+            ></md-switch>
         `
     }
 }

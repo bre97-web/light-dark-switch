@@ -1,6 +1,4 @@
-import { customElement, property } from 'lit/decorators.js'
-import './lib/Switch'
-import { LitElement, TemplateResult, html } from 'lit'
+import { customElement } from 'lit/decorators.js'
 import { Switch } from './lib/Switch'
 
 declare global {

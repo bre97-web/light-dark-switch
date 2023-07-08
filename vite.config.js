@@ -1,25 +1,19 @@
 // vite.config.js
-import { defineConfig } from "vite";
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   base: '/light-dark-switch',
   build: {
     minify: false,
-    rollupOptions: {
-      external: ["css","html","svg"],
-      input: ["./src/index.ts"],
-      output: [
-        {
-          format: "es",
-          entryFileNames: "[name].js",
-          preserveModules: true,
-          exports: "named",
-          dir: "./switch",
-        },
-      ],
-    },
+    sourcemap: true,
     lib: {
-      entry: "./src/index.ts",
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['es'],
+      fileName: 'index',
+      
     },
   },
+  plugins: [dts()]
 });
