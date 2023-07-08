@@ -1,6 +1,11 @@
 # light-dark-switch
- 
-light-dark-switch使用lit构建。
+
+light-dark-switch是根据html标签类名驱动的Web Component，它可以在任何位置使用。
+- 类名优先
+- 直接使用
+- TS支持
+
+_light-dark-switch使用vite + lit + @material/web/switch组件构建。提供对TypeScript的支持。_
 
 # Quick Start
 
@@ -15,18 +20,31 @@ npm i light-dark-switch
 在index.html中引入
 
 ```html
-<script type="module" src='switch/index.js'></script>
+<script type="module" src='light-dark-switch/dist/index.js'></script>
 ```
 
 或者在main.js中引入
 ```js
-import 'switch/index.js'
+import 'light-dark-switch/dist/index'
+```
+
+或者在main.ts中引入
+```ts
+import 'light-dark-switch'
 ```
 
 ## Usage
 
 ```html
-<script type="module" src='switch/index.js'></script>
+<script type="module" src='light-dark-switch/dist/index'></script>
 
-<light-dark-switch md sync selected></light-dark-switch>
+<light-dark-switch sync selected></light-dark-switch>
 ```
+
+# Documents
+## Properties
+|Property Name|Document|
+|:--|:--|
+|sync|使按钮在html的dark类名变更后**同步**|
+|selected|使按钮在**首次渲染后的选择状态**为已选择（selected）|
+|disabled|使按钮**不可用**|

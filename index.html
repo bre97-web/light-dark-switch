@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Light Dark Switch</title>
-  <script type="module" src='./switch/index.js'></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src='./src/index.ts'></script>
+  <link rel="stylesheet" href='./output.css' />
 </head>
 
-<body>
-  <div class="space-y-2">
-    <header class="flex flex-row justify-between border w-screen px-4 py-2">
-      <div>
-        <h1 class="font-bold">light-dark-switch</h1>
-        <p>Material Design 3 Styles</p>
-      </div>
+<body class="bg-white text-black dark:bg-black dark:text-white px-2 md:px-0">
 
-      <aside>
-        <light-dark-switch md></light-dark-switch>
-      </aside>
+  <div class="container mx-auto mt-16 space-y-16">
+    <header class="text-center">
+      <h1 class="font-black text-4xl">light-dark-switch</h1>
+      <p class="text-black/75 dark:text-white/75 font-medium">This module only changes the class names of html nodes, it
+        does not provide any style to change the webpage.</p>
     </header>
-    <header class="flex flex-row justify-between border w-screen px-4 py-2">
-      <div>
-        <h1 class="font-bold">light-dark-switch</h1>
-        <p>From <a class="text-blue-500" href="https://codepen.io/HampusE/pen/LYZQRpq">CodePen Styles</a></p>
-      </div>
-      <aside>
-        <light-dark-switch></light-dark-switch>
-      </aside>
-    </header>
-    <main class="max-w-xl mx-auto">
-        <h1 class="text-4xl my-4 font-bold">Sync</h1>
-        <div class="flex flex-row gap-4">
-          <light-dark-switch md sync></light-dark-switch>
-          <light-dark-switch md sync></light-dark-switch>
-          <light-dark-switch sync></light-dark-switch>
-          <light-dark-switch sync></light-dark-switch>
-        </div>
 
-        <h1 class="text-4xl my-4 font-bold">No Sync</h1>
-        <div class="flex flex-row gap-4">
-          <light-dark-switch md></light-dark-switch>
-          <light-dark-switch md></light-dark-switch>
+    <main class="flex flex-col gap-8 max-w-xl mx-auto">
+      <div class="card space-y-4">
+        <h1>No sync</h1>
+        <div class="flex gap-2">
+          <light-dark-switch></light-dark-switch>
           <light-dark-switch></light-dark-switch>
           <light-dark-switch></light-dark-switch>
         </div>
+      </div>
 
-        <h1 class="text-4xl my-4 font-bold">With Selected Property</h1>
-        <div class="flex flex-row gap-4">
-          <light-dark-switch md selected></light-dark-switch>
-          <light-dark-switch selected></light-dark-switch>
+      <div class="card space-y-4">
+        <h1>With sync</h1>
+        <div class="flex gap-2">
+          <light-dark-switch id="button" sync></light-dark-switch>
+          <light-dark-switch sync></light-dark-switch>
+          <light-dark-switch sync></light-dark-switch>
         </div>
+      </div>
 
-        <h1 class="text-4xl my-4 font-bold">Sync With Selected Property</h1>
-        <div class="flex flex-row gap-4">
-          <light-dark-switch md sync selected></light-dark-switch>
-          <light-dark-switch sync selected></light-dark-switch>
+      <div class="card space-y-4">
+        <section>
+          <h1>Disabled</h1>
+          <p>(default, selected, sync)</p>
+        </section>
+        <div class="flex gap-2">
+          <light-dark-switch  disabled></light-dark-switch>
+          <light-dark-switch disabled selected></light-dark-switch>
+          <light-dark-switch disabled sync></light-dark-switch>
         </div>
+      </div>
+
     </main>
   </div>
+
+  <script>
+    window.onload = () => {
+        var button = document.getElementById('button')
+        // button.toggle()
+    }
+  </script>
 </body>
 
 </html>

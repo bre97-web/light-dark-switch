@@ -1,33 +1,19 @@
 // vite.config.js
-import { defineConfig } from "vite";
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   base: '/light-dark-switch',
-  // build: {
-  //   //打包文件目录
-  //   outDir: "es",
-  //   //压缩
-  //   //minify: false,
-  //   rollupOptions: {
-  //     //忽略打包vue文件
-  //     external: ["css","html","svg"],
-  //     input: ["./index.ts"],
-  //     output: [
-  //       {
-  //         //打包格式
-  //         format: "es",
-  //         //打包后文件名
-  //         entryFileNames: "[name].js",
-  //         //让打包目录和我们目录对应
-  //         preserveModules: true,
-  //         exports: "named",
-  //         //配置打包根目录
-  //         dir: "./switch",
-  //       },
-  //     ],
-  //   },
-  //   lib: {
-  //     entry: "./index.ts",
-  //   },
-  // },
+  build: {
+    minify: false,
+    sourcemap: true,
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['es'],
+      fileName: 'index',
+      
+    },
+  },
+  plugins: [dts()]
 });
