@@ -1,6 +1,6 @@
 {
   "name": "light-dark-switch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "bre97-npm",
   "description": "A lit web component.",
   "keywords": [
@@ -35,6 +35,6 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ]
 }
