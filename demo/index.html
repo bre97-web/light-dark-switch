@@ -43,10 +43,10 @@
     console.log('Lit Local Server is started.');
   </script>
 </head>
+<body>
 
-<body class="bg-white text-black dark:bg-black dark:text-white px-2 md:px-0">
-
-  <div class="container mx-auto mt-16 space-y-16">
+  <div class="container mx-auto my-16 space-y-32">
+    
     <header class="text-center">
       <h1 class="font-black text-4xl">light-dark-switch</h1>
       <p class="text-black/75 dark:text-white/75 font-medium">This module only changes the class names of html nodes, it
@@ -57,9 +57,9 @@
       </p>
     </header>
 
-    <main class="flex flex-col gap-8 max-w-xl mx-auto">
-      <div class="card space-y-4">
-        <h1>No enable-sync</h1>
+    <main class="flex flex-col gap-8 max-w-3xl mx-auto">
+      <div class="space-y-4">
+        <h2>No enable-sync</h2>
         <div class="flex gap-2">
           <light-dark-switch>
             <md-filled-tonal-button>Toggle</md-filled-tonal-button>
@@ -71,10 +71,17 @@
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
         </div>
+        <pre>
+          <code>
+&lt;light-dark-switch&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+          </code>
+        </pre>
       </div>
 
-      <div class="card space-y-4">
-        <h1>With enable-sync</h1>
+      <div class="space-y-4">
+        <h2>With enable-sync</h2>
         <div class="flex gap-2">
           <light-dark-switch enable-sync>
             <md-switch>Toggle</md-switch>
@@ -86,15 +93,22 @@
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
         </div>
+        <pre>
+          <code>
+&lt;light-dark-switch enable-sync&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+          </code>
+        </pre>
       </div>
 
-      <div class="card space-y-4">
+      <div class="space-y-4">
         <section>
-          <h1>Disabled</h1>
+          <h2>Disabled</h2>
           <p>(default, selected, enable-sync)</p>
         </section>
         <div class="flex gap-2">
-          <light-dark-switch  disabled>
+          <light-dark-switch disabled>
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
           <light-dark-switch disabled selected>
@@ -104,6 +118,53 @@
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
         </div>
+        <pre>
+          <code>
+&lt;light-dark-switch disabled&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+          </code>
+        </pre>
+        <pre>
+          <code>
+&lt;light-dark-switch disabled selected&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+          </code>
+        </pre>
+        <pre>
+          <code>
+&lt;light-dark-switch disabled enable-sync&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="card space-y-4">
+        <h2>Methods</h2>
+        <div class="flex gap-2">
+          <light-dark-switch>
+            <md-switch>Toggle</md-switch>
+          </light-dark-switch>
+        </div>
+        <pre>
+          <code>
+&lt;light-dark-switch id="abc"&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+&lt;/light-dark-switch&gt;
+
+var button = document.getElementById('abc')
+button.select()
+button.unSelect()
+button.enableSync()
+button.disableSync()
+button.isSelected()
+button.isDisabled()
+button.isSync()
+
+          </code>
+        </pre>
       </div>
 
     </main>
