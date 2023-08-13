@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Light Dark Switch</title>
-  <script type="module" src='./src/index.ts'></script>
-  <link rel="stylesheet" href='./output.css' />
+  <title>ScrollBackButton Demo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style rel="stylesheet">
+    * {
+      transition: all 0.15s;
+    }
+    section > * + * {
+      margin-top: 0.5rem !important;
+    }
+    pre {
+      padding: 0.25rem 1.75rem !important;
+      border: 1px solid lightgray;
+      border-radius: 12px;
+    }
+    pre:hover {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    h2 {
+      font-weight: 500 !important;
+    }
+  </style>
+
+  <script type="module">
+    /**
+     * Import lit component in right here.
+     */
+
+    import "../scroll-button/scroll-button.js"
+    import "../node_modules/@material/web/button/filled-tonal-button"
+    import "../node_modules/@material/web/button/elevated-button"
+    import "../node_modules/@material/web/icon/icon"
+    import "../node_modules/material-symbols/outlined.css"
+
+  </script>
+
+  <script>
+    console.log('Lit Local Server is started.');
+  </script>
 </head>
 
 <body class="bg-white text-black dark:bg-black dark:text-white px-2 md:px-0">
