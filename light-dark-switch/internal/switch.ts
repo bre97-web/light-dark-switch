@@ -1,7 +1,22 @@
 import { LitElement, PropertyValueMap, TemplateResult, html } from "lit"
 import { property } from "lit/decorators.js"
 
-class Switch extends LitElement {
+export interface StandardSwitchInetrface {
+    toggle(): void
+    select(): void
+    unSelect(): void
+}
+export interface StandardStatefulSwitchInetrface {
+    isSelected(): boolean
+    isDisabled(): boolean
+}
+export interface SyncSwitchInterface {
+    enableSync(): void
+    disableSync(): void
+    isSync(): boolean
+}
+
+export class Switch extends LitElement implements StandardSwitchInetrface, StandardStatefulSwitchInetrface, SyncSwitchInterface {
 
     /**
      * 内部维护的定时器
@@ -137,7 +152,7 @@ class Switch extends LitElement {
     /**
      * 使用sync属性以启用同步，这将启用含有副作用的功能。
      * @see 副作用
-     * @see 同步模式下，html标签的dark类名的移除或添加动作会引起selected属性值的更新
+     * @see 同步模式下,html标签的dark类名的移除或添加动作会引起selected属性值的更新
      */
     @property({ type: Boolean, attribute: 'enable-sync' }) sync: boolean = false
 
@@ -150,6 +165,3 @@ class Switch extends LitElement {
         `
     }
 }
-
-
-export { Switch }
