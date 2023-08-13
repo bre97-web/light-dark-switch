@@ -2,7 +2,7 @@
 /**
  * Write your name of repo.
  */
-const packageName = 'scroll-button'
+const packageName = 'light-dark-switch'
 
 export default {
     

@@ -9,7 +9,7 @@ class Switch extends LitElement {
      */
     private watchHtmlIntervalTimer: number;
 
-    connectedCallback() {
+    override connectedCallback() {
         super.connectedCallback()
 
         /**
@@ -27,14 +27,14 @@ class Switch extends LitElement {
             this.watchHtmlIntervalTimer = setInterval(() => this.syncDakrClassToLocalProperty(), 500)
         }
     }
-    disconnectedCallback(): void {
+    override disconnectedCallback(): void {
         super.disconnectedCallback()
         clearInterval(this.watchHtmlIntervalTimer)
     }
     /**
      * lit组件更新完毕后根据selected的值来设置document.documentElement的类名
     */
-   protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+   protected override updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
         this.toggleDarkClass()
     }
 
@@ -107,11 +107,13 @@ class Switch extends LitElement {
 
     protected override render(): TemplateResult<1> {
         return html`
-            <md-switch
+            <div
                 @click="${() => this.selected = !this.selected}"
                 ?selected="${this.selected}"
                 ?disabled="${this.disabled}"
-            ></md-switch>
+            >
+                <slot></slot>
+            </div>
         `
     }
 }

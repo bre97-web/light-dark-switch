@@ -1,7 +1,7 @@
 {
   "name": "light-dark-switch",
-  "version": "0.0.3",
-  "author": "bre97-npm",
+  "version": "0.0.1",
+  "author": "bre97-web",
   "description": "A lit web component.",
   "keywords": [
     "switch",

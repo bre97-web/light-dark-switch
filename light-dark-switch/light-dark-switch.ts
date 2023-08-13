@@ -1,5 +1,5 @@
 import { customElement } from 'lit/decorators.js'
-import { Switch } from './lib/Switch'
+import { Switch } from './internal/switch'
 
 declare global {
   interface HTMLElementTagNameMap {
