@@ -30,9 +30,10 @@ class Switch extends LitElement {
         super.disconnectedCallback()
         clearInterval(this.watchHtmlIntervalTimer)
     }
+
     /**
      * lit组件更新完毕后根据selected的值来设置document.documentElement的类名
-    */
+     */
    protected override updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
         this.toggleDarkClass()
         this.syncPropertiesToSlot()
@@ -85,12 +86,41 @@ class Switch extends LitElement {
     }
 
     /**
-     * 反相selected
+     * 切换selected的值
      */
-    public toggle() {
+    public toggle(): void {
         this.selected = !this.selected
-        this.toggleDarkClass()
     }
+    public select(): void {
+        this.selected = true
+    }
+    public unSelect(): void {
+        this.selected = false
+    }
+    public enableSync(): void {
+        if(this.sync) {
+            return 
+        }
+        this.sync = true
+        this.watchHtmlIntervalTimer = setInterval(() => this.syncDakrClassToLocalProperty(), 500)
+    }
+    public disableSync(): void {
+        if(!this.sync) {
+            return
+        }
+        this.sync = false
+        clearInterval(this.watchHtmlIntervalTimer)
+    }
+    public isSelected(): boolean {
+        return this.selected
+    }
+    public isDisabled(): boolean {
+        return this.disabled
+    }
+    public isSync(): boolean {
+        return this.sync
+    }
+
 
     /**
      * 如果启用了sync，selected仅决定组件首次渲染后的选择状态

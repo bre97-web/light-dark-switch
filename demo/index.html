@@ -67,7 +67,7 @@
           <light-dark-switch>
             <textarea>Toggle</textarea>
           </light-dark-switch>
-          <light-dark-switch>
+          <light-dark-switch id="button">
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
         </div>
@@ -76,7 +76,7 @@
       <div class="card space-y-4">
         <h1>With enable-sync</h1>
         <div class="flex gap-2">
-          <light-dark-switch id="button" enable-sync>
+          <light-dark-switch enable-sync>
             <md-switch>Toggle</md-switch>
           </light-dark-switch>
           <light-dark-switch enable-sync>
@@ -110,9 +110,20 @@
   </div>
 
   <script>
-    window.onload = () => {
+    window.onload = async () => {
         var button = document.getElementById('button')
-        // button.toggle()
+        const delay = async (e) => await new Promise(resolve => {
+          setTimeout(() => {
+            e()
+            resolve()
+          }, 1000)
+        })
+
+        
+        await delay(() => button.select())
+        await delay(() => button.unSelect())
+        await delay(() => button.enableSync())
+        await delay(() => button.disableSync())
     }
   </script>
 </body>
