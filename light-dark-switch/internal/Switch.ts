@@ -1,6 +1,5 @@
 import { LitElement, PropertyValueMap, TemplateResult, html } from "lit"
 import { property } from "lit/decorators.js"
-import '@material/web/switch/switch'
 
 class Switch extends LitElement {
 
@@ -9,7 +8,7 @@ class Switch extends LitElement {
      */
     private watchHtmlIntervalTimer: number;
 
-    connectedCallback() {
+    override connectedCallback() {
         super.connectedCallback()
 
         /**
@@ -27,15 +26,22 @@ class Switch extends LitElement {
             this.watchHtmlIntervalTimer = setInterval(() => this.syncDakrClassToLocalProperty(), 500)
         }
     }
-    disconnectedCallback(): void {
+    override disconnectedCallback(): void {
         super.disconnectedCallback()
         clearInterval(this.watchHtmlIntervalTimer)
     }
     /**
      * lit组件更新完毕后根据selected的值来设置document.documentElement的类名
     */
-   protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+   protected override updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
         this.toggleDarkClass()
+        this.syncPropertiesToSlot()
+    }
+
+    private syncPropertiesToSlot() {
+        const slot = this.shadowRoot.querySelector('slot').assignedElements({flatten: true})[0] as HTMLElement & {selected: boolean, disabled: boolean}
+        slot.disabled = this.disabled
+        slot.selected = this.selected
     }
 
     /**
@@ -90,28 +96,27 @@ class Switch extends LitElement {
      * 如果启用了sync，selected仅决定组件首次渲染后的选择状态
      * @see 可选项
      */
-    @property({ type: Boolean }) selected: boolean = false
+    @property({ type: Boolean, attribute: 'selected' }) selected: boolean = false
 
     /**
      * 设置组件的禁用状态
      * @see 可选项
      */
-    @property({ type: Boolean }) disabled: boolean = false
+    @property({ type: Boolean, attribute: 'disabled' }) disabled: boolean = false
 
     /**
      * 使用sync属性以启用同步，这将启用含有副作用的功能。
      * @see 副作用
      * @see 同步模式下，html标签的dark类名的移除或添加动作会引起selected属性值的更新
      */
-    @property({ type: Boolean }) sync: boolean = false
+    @property({ type: Boolean, attribute: 'enable-sync' }) sync: boolean = false
 
     protected override render(): TemplateResult<1> {
         return html`
-            <md-switch
+            <slot
                 @click="${() => this.selected = !this.selected}"
-                ?selected="${this.selected}"
-                ?disabled="${this.disabled}"
-            ></md-switch>
+            >
+            </slot>
         `
     }
 }
