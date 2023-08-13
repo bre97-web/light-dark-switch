@@ -83,7 +83,7 @@
       "clean": "if-file-deleted"
     },
     "build:css-to-ts": {
-      "command": "node css-to-ts.js",
+      "command": "node ./config/css-to-ts.js",
       "files": [
         "css-to-ts.js"
       ],
