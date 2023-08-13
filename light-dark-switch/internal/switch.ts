@@ -1,7 +1,22 @@
 import { LitElement, PropertyValueMap, TemplateResult, html } from "lit"
 import { property } from "lit/decorators.js"
 
-class Switch extends LitElement {
+export interface StandardSwitchInetrface {
+    toggle(): void
+    select(): void
+    unSelect(): void
+}
+export interface StandardStatefulSwitchInetrface {
+    isSelected(): boolean
+    isDisabled(): boolean
+}
+export interface SyncSwitchInterface {
+    enableSync(): void
+    disableSync(): void
+    isSync(): boolean
+}
+
+export class Switch extends LitElement implements StandardSwitchInetrface, StandardStatefulSwitchInetrface, SyncSwitchInterface {
 
     /**
      * 内部维护的定时器
@@ -30,9 +45,10 @@ class Switch extends LitElement {
         super.disconnectedCallback()
         clearInterval(this.watchHtmlIntervalTimer)
     }
+
     /**
      * lit组件更新完毕后根据selected的值来设置document.documentElement的类名
-    */
+     */
    protected override updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
         this.toggleDarkClass()
         this.syncPropertiesToSlot()
@@ -85,12 +101,41 @@ class Switch extends LitElement {
     }
 
     /**
-     * 反相selected
+     * 切换selected的值
      */
-    public toggle() {
+    public toggle(): void {
         this.selected = !this.selected
-        this.toggleDarkClass()
     }
+    public select(): void {
+        this.selected = true
+    }
+    public unSelect(): void {
+        this.selected = false
+    }
+    public enableSync(): void {
+        if(this.sync) {
+            return 
+        }
+        this.sync = true
+        this.watchHtmlIntervalTimer = setInterval(() => this.syncDakrClassToLocalProperty(), 500)
+    }
+    public disableSync(): void {
+        if(!this.sync) {
+            return
+        }
+        this.sync = false
+        clearInterval(this.watchHtmlIntervalTimer)
+    }
+    public isSelected(): boolean {
+        return this.selected
+    }
+    public isDisabled(): boolean {
+        return this.disabled
+    }
+    public isSync(): boolean {
+        return this.sync
+    }
+
 
     /**
      * 如果启用了sync，selected仅决定组件首次渲染后的选择状态
@@ -107,7 +152,7 @@ class Switch extends LitElement {
     /**
      * 使用sync属性以启用同步，这将启用含有副作用的功能。
      * @see 副作用
-     * @see 同步模式下，html标签的dark类名的移除或添加动作会引起selected属性值的更新
+     * @see 同步模式下,html标签的dark类名的移除或添加动作会引起selected属性值的更新
      */
     @property({ type: Boolean, attribute: 'enable-sync' }) sync: boolean = false
 
@@ -120,6 +165,3 @@ class Switch extends LitElement {
         `
     }
 }
-
-
-export { Switch }

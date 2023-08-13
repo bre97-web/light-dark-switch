@@ -1,50 +1,55 @@
 # light-dark-switch
 
 light-dark-switch是根据html标签类名驱动的Web Component，它可以在任何位置使用。
-- 类名优先
-- 直接使用
-- TS支持
-
-_light-dark-switch使用vite + lit + @material/web/switch组件构建。提供对TypeScript的支持。_
 
 # Quick Start
-
 ## Install
-
 ```
 npm i light-dark-switch
 ```
 
 ## Import
-
-在index.html中引入
+in index.html
 
 ```html
-<script type="module" src='light-dark-switch/dist/index.js'></script>
+<script src='./node/moduels/light-dark-switch/light-dark-switch.js'></script>
 ```
 
-或者在main.js中引入
+in main.js
 ```js
-import 'light-dark-switch/dist/index'
+import 'light-dark-switch/light-dark-switch.js'
 ```
 
-或者在main.ts中引入
+in main.ts
 ```ts
-import 'light-dark-switch'
+import 'light-dark-switch/light-dark-switch'
 ```
 
 ## Usage
 
 ```html
-<script type="module" src='light-dark-switch/dist/index'></script>
-
-<light-dark-switch sync selected></light-dark-switch>
+<light-dark-switch></light-dark-switch>
+<light-dark-switch selected></light-dark-switch>
+<light-dark-switch enable-sync></light-dark-switch>
+<light-dark-switch disabled></light-dark-switch>
 ```
 
 # Documents
 ## Properties
 |Property Name|Document|
 |:--|:--|
-|sync|使按钮在html的dark类名变更后**同步**|
-|selected|使按钮在**首次渲染后的选择状态**为已选择（selected）|
+|enable-sync|使按钮在html的dark类名变更后**同步**|
+|selected|使按钮在**首次渲染后的选择状态**为已选择（selected）,它会被html的实际类名影响|
 |disabled|使按钮**不可用**|
+
+## Methods
+|Method|Returns|
+|:--|--:|
+|select()|void|
+|unSelect()|void|
+|enableSync()|void|
+|disableSync()|void|
+|isSelected()|boolean|
+|isDisabled()|boolean|
+|isSync()|boolean|
+
